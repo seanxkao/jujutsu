@@ -41,7 +41,10 @@
 			  "殺死我的不是" + thing1Input.value + "或" + thing2Input.value,
 			  "而是比我更強的傢伙，真是太好了",
 			);
-			output.value = result.join("\n");
+			const data = result.join("\n")
+			output.value = data;
+			// 複製文字到剪貼簿
+			navigator.clipboard.writeText(data).then(() => alert('已複製到剪貼簿'));
 		};
 	</script>
 
