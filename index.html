@@ -1,51 +1,96 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>五條體生成器</title>
-	</head>
+<html lang="en" data-bs-theme="dark">
 
-	<body>
-		<h1>五條體生成器</h1>
-		<div>
-			<input id="me" value="五條" style="width:60px;">：<input id="character" value="宿儺" style="width:60px;"> 真是太強了
-		</div>
-		<div>
-			就算沒有 <input id="object" value="十影" style="width:60px;"></input> 也會贏
-		</div>
-		<div>
-			殺死我的不是 <input id="thing1" value="時間" style="width:60px;"></input> 或 <input id="thing2" value="疾病" style="width:60px;"></input>
-		</div>
-		<button type="button" id="mainButton">真是太好了</button>
-		<div>
-			<textarea id="output" style="width:400px;height:200px;"></textarea>
-		</div>
-	</body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>五條體生成器</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
 
-	<script>
-		var button = document.getElementById("mainButton")
-		var meInput = document.getElementById("me")
-		var characterInput = document.getElementById("character")
-		var objectInput = document.getElementById("object")
-		var thing1Input = document.getElementById("thing1")
-		var thing2Input = document.getElementById("thing2")
-		var output = document.getElementById("output")
-		button.onclick = function()
-		{
-			var result = [];
-			result.push(
-			  meInput.value + "：" + characterInput.value + "太強了",
-			  "而且" + characterInput.value + "還沒有使出全力的樣子",
-			  "對方就算沒有" + objectInput.value + "也會贏",
-			  "我甚至覺得有點對不起他",
-			  "我沒能在這場戰鬥讓" + characterInput.value + "展現他的全部給我",
-			  "殺死我的不是" + thing1Input.value + "或" + thing2Input.value,
-			  "而是比我更強的傢伙，真是太好了",
-			);
-			const data = result.join("\n")
-			output.value = data;
-			// 複製文字到剪貼簿
-			navigator.clipboard.writeText(data).then(() => alert('已複製到剪貼簿'));
-		};
-	</script>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col col-12 col-lg-8 mx-auto">
+                <h1 class="text-center mb-4">五條體生成器</h1>
+
+                <div class="row m-2 row-col-2 row-col-md-4 text-center gy-2 input-group">
+                    <div class="col-5 col-md-2">
+                        <input id="me" value="五條" class="form-control">
+                    </div>
+                    <span class="col-5 col-md-1 d-flex align-items-center">：</span>
+                    <div class="col-5 col-md-3 ms-md-1">
+                        <input id="character" value="宿儺" class="form-control">
+                    </div>
+                    <span class="col-6 col-md-3 d-flex align-items-center">真是太強了</span>
+                </div>
+
+                <div class="row m-2 text-center input-group">
+                    <span class="col-5 col-md-3 d-flex align-items-center ms-1">就算沒有</span>
+                    <div class="col col-md-3">
+                        <input id="object" value="十影" class="form-control">
+                    </div>
+                    <span class="col d-flex align-items-center">也會贏</span>
+                </div>
+
+                <div class="row mx-2 row-col-2 row-col-md-3 gy-2 text-center input-group">
+                    <span class="col-5 col-md-3 d-flex align-items-center ms-1">殺死我的不是</span>
+                    <div class="col-6 col-md-3">
+                        <input id="thing1" value="時間" class="form-control">
+                    </div>
+                    <span class="col-5 col-md-1 d-flex align-items-center ms-1">或</span>
+                    <div class="col-6  col-md-3">
+                        <input id="thing2" value="疾病" class="form-control"></input>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 col-6 mx-auto my-5">
+                    <button type="button" id="mainButton" class="btn btn-success btn-lg">真是太好了</button>
+                </div>
+
+                <div class="my-3 mx-1 text-center input-group">
+                    <textarea id="output" class="form-control" row="5" style="min-height: 190px;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+    var button = document.getElementById("mainButton")
+    var meInput = document.getElementById("me")
+    var characterInput = document.getElementById("character")
+    var objectInput = document.getElementById("object")
+    var thing1Input = document.getElementById("thing1")
+    var thing2Input = document.getElementById("thing2")
+    var output = document.getElementById("output")
+    button.onclick = function () {
+        var result = [];
+        result.push(
+            meInput.value + "：" + characterInput.value + "太強了",
+            "而且" + characterInput.value + "還沒有使出全力的樣子",
+            "對方就算沒有" + objectInput.value + "也會贏",
+            "我甚至覺得有點對不起他",
+            "我沒能在這場戰鬥讓" + characterInput.value + "展現他的全部給我",
+            "殺死我的不是" + thing1Input.value + "或" + thing2Input.value,
+            "而是比我更強的傢伙，真是太好了",
+        );
+        const data = result.join("\n")
+        output.value = data;
+        // 複製文字到剪貼簿
+        navigator.clipboard.writeText(data).then(() => alert('已複製到剪貼簿'));
+    };
+</script>
 
 </html>
